@@ -1,7 +1,7 @@
+/* ===== RESET GENERAL ===== */
 * {
     box-sizing: border-box;
 }
-
 
 body {
     font-family: "Delius", cursive;
@@ -12,11 +12,12 @@ body {
     padding: 0;
 }
 
+/* ===== HEADER & NAV ===== */
 header {
     background-color: #333;
     color: antiquewhite;
     margin: 10px 7px 30px 7px;
-    padding: 10px 0;
+    padding: 10px 20px;
     text-align: center;
     display: flex;
     align-items: center;
@@ -25,24 +26,32 @@ header {
 }
 
 header h2 {
-    margin: 15px 10px 15px 15px;
+    margin: 15px 10px;
 }
 
 nav a {
     color: white;
     text-decoration: none;
-    margin: 0px 10px;
+    margin: 0 10px;
     padding: 8px 12px;
+    transition: color 0.3s ease;
 }
 
 nav a:hover {
     text-decoration: underline;
+    color: #ff6600;
 }
 
+/* ===== TITULOS ===== */
 h1, h2 {
     margin: auto 16px;
 }
 
+.especialidades-title {
+    padding: 35px 0 0 15px;
+}
+
+/* ===== BOTONES ===== */
 button {
     font-family: "Delius", cursive;
     background-color: #ff6600;
@@ -52,30 +61,28 @@ button {
     cursor: pointer;
     font-size: 16px;
     padding: 10px 15px;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 button:hover {
     background-color: #804016;
+    transform: scale(1.03);
 }
 
+/* ===== SECCION HERO ===== */
 .hero {
-
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(Imagenes/gato_resta.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    position: relative;
     color: antiquewhite;
     text-align: center;
     margin: auto 7px;
     padding: 100px 20px;
     border-radius: 15px;
-
 }
 
 .hero-overlay {
-    /* From https://css.glass */
     background: rgba(0, 0, 0, 0.41);
     border-radius: 16px;
     margin: 15px 10px;
@@ -88,22 +95,25 @@ button:hover {
     z-index: 1;
 }
 
-
-.especialidades-container {
+/* ===== ESPECIALIDADES & MENÚ (alineados en filas fijas) ===== */
+.especialidades-container,
+.menu-container {
     display: flex;
     margin: 7px;
     gap: 11px;
+    flex-wrap: nowrap; /* evita que bajen de línea */
+    justify-content: center;
 }
 
 .especialidad {
     background-color: #333;
     color: antiquewhite;
     border-radius: 15px;
-    display: inline-block;
     margin: 20px;
     padding: 10px;
     text-align: center;
-    width: calc(33% - 40px);
+    width: 30%; /* siempre 3 por fila */
+    min-width: 250px; /* evita que se achiquen demasiado en pantallas pequeñas */
     box-sizing: border-box;
 }
 
@@ -114,26 +124,21 @@ button:hover {
     height: auto;
     margin-bottom: 30px;
 }
-.menu-container{
-    display: flex;
-    margin: 7px;
-    gap: 11px;
-}
 
-.menu-item{
+.menu-item {
     background-color: #333;
     color: antiquewhite;
     border-radius: 15px;
-    display: inline-block;
     padding: 10px;
     margin: 20px;
-    height: 210px;
     text-align: justify;
-    width: calc(33% - 40px);
+    width: 30%; /* siempre 3 por fila */
+    min-width: 250px;
+    height: 210px;
     box-sizing: border-box;
 }
 
-/* --------- SECCIÓN SOBRE NOSOTROS --------- */
+/* ===== SECCION NOSOTROS ===== */
 .nosotros {
     display: flex;
     flex-direction: column;
@@ -143,11 +148,12 @@ button:hover {
 }
 
 .descripcion {
-    background-color: #2a2a2a;
+    background-color: #333; /* ahora sólido */
     color: antiquewhite;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.6);
+    backdrop-filter: blur(5px);
     width: 90%;
     max-width: 800px;
     text-align: justify;
@@ -164,11 +170,12 @@ button:hover {
 }
 
 .card {
-    background-color: #2a2a2a;
+    background-color: #333; /* ahora sólido */
     color: antiquewhite;
     padding: 15px 20px;
     border-radius: 10px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.6);
+    backdrop-filter: blur(4px);
     flex: 1;
     min-width: 200px;
     text-align: center;
@@ -181,9 +188,10 @@ button:hover {
     box-shadow: 0 4px 12px rgba(0,0,0,0.8);
 }
 
+/* ===== GALERÍA ===== */
 .galeria {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* columnas automáticas */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 15px;
     padding: 0 15px 30px 15px;
 }
@@ -203,16 +211,16 @@ button:hover {
     box-shadow: 0 4px 12px rgba(0,0,0,0.8);
 }
 
-/* FORMULARIOS (reservas y contacto) */
+/* ===== FORMULARIOS ===== */
 .reservation-form,
 .formulario-contacto {
-    background-color: #333;
+    background-color: #333; /* ahora sólido */
     border-radius: 10px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.6);
+    backdrop-filter: blur(6px);
     color: antiquewhite;
-
-    width: calc(100% - 30px); /* ocupa todo menos 15px de cada lado */
-    margin: 25px auto; /* centra el formulario horizontalmente */
+    width: calc(100% - 30px);
+    margin: 25px auto;
     padding: 20px;
     box-sizing: border-box;
 }
@@ -245,34 +253,35 @@ button:hover {
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    transition: background 0.3s ease;
+    transition: background 0.3s ease, transform 0.2s ease;
 }
 
 .reservation-form button:hover,
 .formulario-contacto button:hover {
     background-color: #80360e;
+    transform: scale(1.02);
 }
 
+/* ===== CONTACTO ===== */
 .info-contacto {
-    background-color: #2a2a2a;
+    background-color: #333; /* ahora sólido */
     color: antiquewhite;
-    margin: 20px;
+    margin: 20px auto;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.6);
+    width: calc(100% - 30px);
     display: flex;
     flex-direction: column;
     gap: 10px;
+    backdrop-filter: blur(4px);
 }
 
 .info-contacto h3 {
     margin: 0 0 5px 0;
 }
 
-.info-contacto p {
-    margin: 0;
-}
-
+/* ===== FOOTER ===== */
 footer {
     background-color: #333;
     color: antiquewhite;
@@ -282,3 +291,17 @@ footer {
     align-items: center;
 }
 
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .especialidades-container,
+    .menu-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .especialidad,
+    .menu-item {
+        width: 90%;
+        margin: 10px 0;
+    }
+}
